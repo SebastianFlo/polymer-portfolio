@@ -1,0 +1,48 @@
+<!-- import latest release version of all components from polygit -->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+
+<dom-module id="gallery-item">
+    <template>
+        <style>
+            :host {
+                display: inline-block;
+            }
+            iron-icon {
+                fill: rgba(100, 100, 100, 0.9);
+            }
+            :host([pressed]) iron-icon {
+                fill: rgb(255, 100, 20);
+            }
+        </style>
+        
+        <!--local DOM goes here-->
+        <span>
+            Test
+            <iron-icon icon="settings">
+            </iron-icon>
+        </span>
+    </template>
+    
+    <script>
+        Polymer({
+            is: 'gallery-item',
+            properties: {
+                itemIcon: String,
+                pressed: {
+                    type: Boolean,
+                    value: false,
+                    notify: true,
+                    reflectToAttribute: true
+                }
+            },
+            listeners: {
+                'tap': 'toggle'
+            },
+            toggle: function() {
+                this.pressed = !this.pressed;
+            }
+        });
+    </script>
+    
+</dom-module>
