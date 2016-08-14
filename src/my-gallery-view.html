@@ -1,0 +1,103 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-slider/paper-slider.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-styles/typography.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="components/gallery-item.html">
+<link rel="import" href="components/picture-card.html">
+
+<dom-module id="my-gallery-view">
+    <!-- Defines the element's style and local DOM -->
+    <template>
+        <style>
+            :host {
+                display: block;
+                padding: 16px;
+            }
+
+            paper-card {
+                width: 100%;
+            }
+
+            paper-card.white {
+                --paper-card-header-color: #fff;
+            }
+
+            .horizontal {
+                @apply(--layout-horizontal);
+            }
+
+            .justified {
+                @apply(--layout-justified);
+            }
+
+            paper-icon-button {
+                color: var(--paper-grey-600);
+            }
+
+        </style>
+        
+        <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+        
+        
+        <hi>[[ tail ]] View</hi>
+        <hi>[[ route ]] Route</hi>
+
+        <br>
+        
+        <div style="width:600px;">
+
+            <paper-card heading="Pre-fab homes" preload-image="true" fade-image="true" image="http://loremflickr.com/600/480/dog" class="white" style="margin-bottom:8px;">
+                <div class="card-actions">
+                    <paper-icon-button icon="favorite"></paper-icon-button>
+                    <paper-icon-button icon="bookmark"></paper-icon-button>
+                    <paper-icon-button icon="social:share"></paper-icon-button>
+                </div>
+            </paper-card>
+            <div class="horizontal">
+                <paper-card heading="Favorite trips" preload-image="true" fade-image="true" image="http://loremflickr.com/600/480/paris" class="white" style="margin-right:4px;">
+                    <div class="card-actions horizontal justified">
+                    <paper-icon-button icon="favorite"></paper-icon-button>
+                    <paper-icon-button icon="bookmark"></paper-icon-button>
+                    <paper-icon-button icon="social:share"></paper-icon-button>
+                    </div>
+                </paper-card>
+                <paper-card heading="Best airlines" preload-image="true" fade-image="true" image="http://loremflickr.com/600/480/cat" class="white" style="margin-left:4px;">
+                    <div class="card-actions horizontal justified">
+                    <paper-icon-button icon="favorite"></paper-icon-button>
+                    <paper-icon-button icon="bookmark"></paper-icon-button>
+                    <paper-icon-button icon="social:share"></paper-icon-button>
+                    </div>
+                </paper-card>
+            </div>
+       
+        </div>
+
+        
+    </template>
+    
+    <!-- Creates the element's prototype and registers it -->
+    <script>
+        Polymer({
+            is: 'my-gallery-view',
+            properties: {
+                route: {
+                    type: Object,
+                    notify: true
+                },
+                tail: {
+                    type: Object,
+                    notify: true
+                }
+            }
+        });
+    </script>
+    
+</dom-module>
+    

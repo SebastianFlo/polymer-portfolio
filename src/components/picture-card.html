@@ -1,0 +1,66 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+
+<!--
+`picture-card`
+Has a picture and a description
+
+@demo demo/index.html 
+-->
+
+<dom-module id="picture-card">
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+      }
+
+      paper-card {
+        --paper-card-header-color: #fff;
+      }
+
+      paper-card #description {
+        padding: 20px;
+        flex: 0 0 auto;
+      }
+    </style>
+
+    <paper-card heading="[[name]]" animated="true" animated-shadow="true" image="[[image]]" elevation="5" fade-image="true>
+
+      <div class="card-content">
+        [[ category ]]  
+      </div>
+
+      <div id="description">
+        <content select=".description"></content>
+      </div>
+    </paper-card>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'picture-card',
+
+      properties: {
+        category: {
+          type: String,
+          value: 'Category',
+        },
+        name: {
+          type: String,
+          value: ''
+        },
+        image: {
+          type: String,
+          value: ''
+        },
+      },
+
+    });
+  </script>
+</dom-module>
